@@ -21,8 +21,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Inject
-    fun injectFoo(foo: Foo) {
-        Log.e(TAG, "injectFoo : $foo")
+    fun injectFoo(
+        @CustomQualifier foo: Foo
+    ) {
+        Log.e(TAG, "injected Foo's id : ${foo.id}")
         this.foo = foo
     }
 }
