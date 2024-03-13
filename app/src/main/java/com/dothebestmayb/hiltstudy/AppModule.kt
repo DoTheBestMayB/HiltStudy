@@ -1,5 +1,6 @@
 package com.dothebestmayb.hiltstudy
 
+import android.app.Application
 import android.util.Log
 import dagger.Module
 import dagger.Provides
