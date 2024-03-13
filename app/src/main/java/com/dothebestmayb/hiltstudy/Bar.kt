@@ -2,5 +2,5 @@ package com.dothebestmayb.hiltstudy
 
 import javax.inject.Inject
 
-class Foo @Inject constructor(val bar: Bar){
+class Bar @Inject constructor(){
 }
