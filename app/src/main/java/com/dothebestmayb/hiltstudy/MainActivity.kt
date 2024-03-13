@@ -1,6 +1,7 @@
 package com.dothebestmayb.hiltstudy
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -8,19 +9,20 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    val TAG = MainActivity::class.java.simpleName
 
-    @Inject
     lateinit var foo: Foo
-
-    @Inject
-    lateinit var bar: Bar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         assert(this::foo.isInitialized)
-        assert(this::bar.isInitialized)
-        assert(foo.bar != null)
+    }
+
+    @Inject
+    fun injectFoo(foo: Foo) {
+        Log.e(TAG, "injectFoo : $foo")
+        this.foo = foo
     }
 }
