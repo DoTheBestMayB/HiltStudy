@@ -11,13 +11,22 @@ class MainActivity : AppCompatActivity() {
 
     val TAG = MainActivity::class.java.simpleName
 
+    @UserQualifier(50, 180)
+    @Inject
+    lateinit var charles: User
+
+    @UserQualifier(10, 120)
+    @Inject
+    lateinit var john: User
+
     lateinit var foo: Foo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        assert(this::foo.isInitialized)
+        Log.e(TAG, "1) ${charles.name}")
+        Log.e(TAG, "2) ${john.name}")
     }
 
     @Inject
