@@ -12,19 +12,9 @@ class MainActivity : AppCompatActivity() {
 
     val TAG = MainActivity::class.java.simpleName
 
-    lateinit var foo: Foo
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    }
-
-    @Inject
-    fun injectFoo(
-        @Named("foo1") foo: Foo
-    ) {
-        Log.e(TAG, "injected Foo's id : ${foo.id}")
-        this.foo = foo
     }
 }
