@@ -2,9 +2,9 @@ package com.dothebestmayb.hiltstudy
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import dagger.Lazy
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import javax.inject.Provider
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -12,16 +12,18 @@ class MainActivity : AppCompatActivity() {
     val TAG = MainActivity::class.java.simpleName
 
     @Inject
-    lateinit var lazyFoo1: Lazy<Foo>
+    lateinit var providerFoo1: Provider<Foo>
 
     @Inject
-    lateinit var lazyFoo2: Lazy<Foo>
+    lateinit var providerFoo2: Provider<Foo>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        assert(lazyFoo1 === lazyFoo2)
-        assert(lazyFoo1.get() === lazyFoo2.get())
+        val foo1 = providerFoo1.get()
+        val foo2 = providerFoo1.get()
+
+        assert(foo1 !== foo2)
     }
 }
