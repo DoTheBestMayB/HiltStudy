@@ -23,7 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         val foo1 = providerFoo1.get()
         val foo2 = providerFoo1.get()
+        val foo3 = providerFoo2.get()
 
-        assert(foo1 !== foo2)
+        assert(foo1 === foo2)
+        assert(foo1 === foo3)
     }
 }
