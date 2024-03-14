@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        assert(lazyFoo1 !== lazyFoo2)
+        assert(lazyFoo1 === lazyFoo2)
+        assert(lazyFoo1.get() === lazyFoo2.get())
     }
 }
