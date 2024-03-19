@@ -21,5 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         assert(optionalFoo != null)
         Log.e(TAG, "isPresent = ${optionalFoo.isPresent}")
+        val foo = optionalFoo.get()
     }
 }
