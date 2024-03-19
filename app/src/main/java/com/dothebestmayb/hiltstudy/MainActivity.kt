@@ -1,6 +1,7 @@
 package com.dothebestmayb.hiltstudy
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -12,20 +13,12 @@ class MainActivity : AppCompatActivity() {
     val TAG = MainActivity::class.java.simpleName
 
     @Inject
-    lateinit var providerFoo1: Provider<Foo>
-
-    @Inject
-    lateinit var providerFoo2: Provider<Foo>
+    lateinit var car: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val foo1 = providerFoo1.get()
-        val foo2 = providerFoo1.get()
-        val foo3 = providerFoo2.get()
-
-        assert(foo1 === foo2)
-        assert(foo1 === foo3)
+        Log.e(TAG, "엔진 타입 = ${car.engine}")
     }
 }
