@@ -1,6 +1,7 @@
 package com.dothebestmayb.hiltstudy
 
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
@@ -8,4 +9,8 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    @Provides
+    fun provideFoo(): Foo {
+        return Foo()
+    }
 }
