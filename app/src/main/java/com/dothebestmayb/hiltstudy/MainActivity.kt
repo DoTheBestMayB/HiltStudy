@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Optional
 import javax.inject.Inject
-import javax.inject.Provider
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -13,12 +13,13 @@ class MainActivity : AppCompatActivity() {
     val TAG = MainActivity::class.java.simpleName
 
     @Inject
-    lateinit var car: Car
+    lateinit var optionalFoo: Optional<Foo>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.e(TAG, "엔진 타입 = ${car.engine}")
+        assert(optionalFoo != null)
+        Log.e(TAG, "isPresent = ${optionalFoo.isPresent}")
     }
 }
