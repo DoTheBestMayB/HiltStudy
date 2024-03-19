@@ -9,8 +9,8 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 abstract class EngineModule {
 
-    @Binds
-    abstract fun bindGasolineEngine(engine: GasolineEngine): Engine
+//    @Binds
+//    abstract fun bindGasolineEngine(engine: GasolineEngine): Engine
 
     @Binds
     abstract fun bindDieselEngine(engine: DieselEngine): Engine
