@@ -38,4 +38,18 @@ object AppModule {
     fun provideIntString2(): String {
         return "구십점"
     }
+
+    @Provides
+    @IntoMap
+    @AnimalKey(Animal.DOG)
+    fun provideDog(): String {
+        return "멍멍이"
+    }
+
+    @Provides
+    @IntoMap
+    @AnimalKey(Animal.CAT)
+    fun provideCat(): String {
+        return "고양이"
+    }
 }

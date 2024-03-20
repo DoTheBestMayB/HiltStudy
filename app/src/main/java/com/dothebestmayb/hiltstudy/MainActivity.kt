@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var oneString: Set<String>
 
     @Inject
-    lateinit var map: Map<Int, String>
+    lateinit var map: Map<AnimalKey, String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
