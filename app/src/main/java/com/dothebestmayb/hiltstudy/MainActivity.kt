@@ -14,10 +14,13 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var oneString: Set<String>
 
+    @Inject
+    lateinit var map: Map<Int, String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.e(TAG, oneString.toString())
+        Log.e(TAG, map.toString())
     }
 }
