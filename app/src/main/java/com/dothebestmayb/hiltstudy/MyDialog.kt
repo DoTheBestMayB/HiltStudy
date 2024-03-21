@@ -20,9 +20,12 @@ class MyDialog @Inject constructor(
         val number1 = entryPoint.getRandomNumber()
         val number2 = entryPoint.getRandomNumber()
         val number3 = entryPoint.getRandomNumber()
+        val localDateTime = entryPoint.getLocalDateTime()
         setContentView(TextView(context).apply {
             text = "${user.name}\n$number1\n" +
-                    "$number2\n$number3"
+                    "$number2\n" +
+                    "$number3\n" +
+                    "$localDateTime"
         })
     }
 }
