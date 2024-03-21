@@ -1,11 +1,12 @@
 package com.dothebestmayb.hiltstudy
 
-import dagger.Module
+import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
-@Module
+@EntryPoint
 @InstallIn(SingletonComponent::class)
-object AppModule {
+interface FooEntryPoint {
 
+    fun getFoo(): Foo
 }
