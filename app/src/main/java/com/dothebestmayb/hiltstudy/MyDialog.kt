@@ -1,14 +1,14 @@
 package com.dothebestmayb.hiltstudy
 
+import android.app.Activity
 import android.app.Dialog
-import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import dagger.hilt.EntryPoints
 import javax.inject.Inject
 
 class MyDialog @Inject constructor(
-    private val context: Context,
+    private val context: Activity,
     private val dialogComponentManager: DialogComponentManager
 ): Dialog(context) {
 
