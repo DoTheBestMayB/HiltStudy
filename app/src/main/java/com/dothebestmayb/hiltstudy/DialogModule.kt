@@ -15,6 +15,7 @@ object DialogModule {
     }
 
     @Provides
+    @DialogScoped
     fun provideRandomNumber(): Int {
         return Random.nextInt(1000)
     }
