@@ -8,4 +8,6 @@ import dagger.hilt.InstallIn
 interface DialogEntryPoint {
 
     fun getUser(): User
+
+    fun getRandomNumber(): Int
 }

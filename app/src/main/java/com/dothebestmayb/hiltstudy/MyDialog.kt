@@ -10,16 +10,19 @@ import javax.inject.Inject
 class MyDialog @Inject constructor(
     private val context: Activity,
     private val dialogComponentManager: DialogComponentManager
-): Dialog(context) {
+) : Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val entryPoint = EntryPoints.get(dialogComponentManager, DialogEntryPoint::class.java)
         val user = entryPoint.getUser()
-
+        val number1 = entryPoint.getRandomNumber()
+        val number2 = entryPoint.getRandomNumber()
+        val number3 = entryPoint.getRandomNumber()
         setContentView(TextView(context).apply {
-            text = "${user.name}"
+            text = "${user.name}\n$number1\n" +
+                    "$number2\n$number3"
         })
     }
 }
