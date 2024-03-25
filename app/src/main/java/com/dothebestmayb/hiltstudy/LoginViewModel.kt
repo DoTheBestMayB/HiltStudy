@@ -16,7 +16,7 @@ class LoginViewModel constructor(
 ):ViewModel(){
 
     private val _uiState = MutableStateFlow(
-        LoginUiState(id = "", pw = "")
+        LoginUiState(id = "admin", pw = "admin")
     )
     val uiState = _uiState.asStateFlow()
 
