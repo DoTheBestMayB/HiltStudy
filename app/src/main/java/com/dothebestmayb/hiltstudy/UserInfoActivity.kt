@@ -22,17 +22,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import com.dothebestmayb.hiltstudy.theme.HiltStudyTheme
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 /**
  * @author soohwan.ok
  */
+@AndroidEntryPoint
 class UserInfoActivity : ComponentActivity() {
 
-    private val localDataSource : UserLocalDataSource by lazy {
-        (application as App).appContainer.createUserLocalDataSource()
-    }
+    @Inject
+    lateinit var localDataSource: UserLocalDataSource
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +48,7 @@ class UserInfoActivity : ComponentActivity() {
                     ) {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             var token by remember { mutableStateOf("") }
-                            LaunchedEffect(Unit){
+                            LaunchedEffect(Unit) {
                                 launch {
                                     token = localDataSource.getToken().orEmpty()
                                 }
@@ -56,7 +58,12 @@ class UserInfoActivity : ComponentActivity() {
                             TextButton(onClick = {
                                 lifecycleScope.launch {
                                     localDataSource.clear()
-                                    startActivity(Intent(this@UserInfoActivity, LoginActivity::class.java))
+                                    startActivity(
+                                        Intent(
+                                            this@UserInfoActivity,
+                                            LoginActivity::class.java
+                                        )
+                                    )
                                     finish()
                                 }
                             }) {

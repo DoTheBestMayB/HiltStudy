@@ -26,6 +26,4 @@ class AppContainer(private val context: Context) {
     fun createUserRemoteDataSource(): UserRemoteDataSource {
         return UserRemoteDataSource(createLoginRetrofitService())
     }
-
-    var loginContainer: LoginContainer? = null
 }

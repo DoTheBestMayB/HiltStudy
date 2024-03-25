@@ -2,18 +2,21 @@ package com.dothebestmayb.hiltstudy
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * @author soohwan.ok
  */
-class LoginViewModel constructor(
+@HiltViewModel
+class LoginViewModel @Inject constructor(
     private val repository: UserDataRepository,
-):ViewModel(){
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(
         LoginUiState(id = "admin", pw = "admin")
@@ -22,16 +25,16 @@ class LoginViewModel constructor(
 
     init {
         viewModelScope.launch {
-            if(repository.isLoggedIn()){
+            if (repository.isLoggedIn()) {
                 val isLoggedInBefore = repository.isLoggedIn()
-                if(isLoggedInBefore){
+                if (isLoggedInBefore) {
                     _uiState.update { it.copy(userState = UserState.LOGGED_IN) }
                 }
             }
         }
     }
 
-    fun login(){
+    fun login() {
         viewModelScope.launch(Dispatchers.IO) {
             val isLoggedIn = repository.login(
                 _uiState.value.id,
@@ -39,7 +42,7 @@ class LoginViewModel constructor(
             )
             val token = repository.getCurrentToken()
             _uiState.update {
-                it.copy(userState = if(isLoggedIn) UserState.LOGGED_IN else UserState.FAILED)
+                it.copy(userState = if (isLoggedIn) UserState.LOGGED_IN else UserState.FAILED)
             }
         }
     }
