@@ -6,5 +6,5 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class App: Application() {
 
-    val TAG = App::class.java.simpleName
+    val appContainer: AppContainer = AppContainer(this)
 }
