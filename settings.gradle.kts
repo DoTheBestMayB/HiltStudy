@@ -15,4 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "HiltStudy"
 include(":app")
- 
+include(":domain")
+include(":presentation")
+include(":data")
