@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.dothebestmayb.hiltstudy.theme.HiltStudyTheme
+import com.dothebestmayb.presentation.theme.HiltStudyTheme
 
 /**
  * @author soohwan.ok

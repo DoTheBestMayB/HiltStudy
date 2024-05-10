@@ -10,7 +10,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.dothebestmayb.hiltstudy.theme.HiltStudyTheme
+import com.dothebestmayb.presentation.theme.HiltStudyTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
