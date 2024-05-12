@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.dothebestmayb.presentation.login.component.HSButton
 import com.dothebestmayb.presentation.theme.HiltStudyTheme
 
 @Composable
@@ -36,26 +37,15 @@ fun WelcomeScreen() {
                     style = MaterialTheme.typography.labelLarge
                 )
             }
-            Button(
+            HSButton(
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
                     .fillMaxWidth()
                     .padding(bottom = 24.dp)
-                    .align(alignment = Alignment.BottomCenter)
-                    .height(48.dp),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    contentColor = MaterialTheme.colorScheme.onPrimary,
-                ),
-                onClick = { },
-            ) {
-                Text(
-                    text = "로그인",
-                    style = MaterialTheme.typography.bodyLarge,
-//                    color = MaterialTheme.colorScheme.onPrimary,
-                )
-            }
+                    .align(alignment = Alignment.BottomCenter),
+                text = "로그인",
+                onClick = {},
+            )
         }
     }
 }
