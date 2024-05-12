@@ -1,4 +1,4 @@
-package com.dothebestmayb.presentation.login.component
+package com.dothebestmayb.presentation.component
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape

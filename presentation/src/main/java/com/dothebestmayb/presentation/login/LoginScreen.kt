@@ -15,8 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.dothebestmayb.presentation.login.component.HSButton
-import com.dothebestmayb.presentation.login.component.HSTextField
+import com.dothebestmayb.presentation.component.HSButton
+import com.dothebestmayb.presentation.component.HSTextField
 import com.dothebestmayb.presentation.theme.HiltStudyTheme
 
 @Composable
