@@ -16,7 +16,13 @@ fun LoginNavHost() {
         composable(
             route = LoginRoute.WelcomeScreen.name
         ) {
-            WelcomeScreen()
+            WelcomeScreen(
+                onNavigateToLoginScreen = {
+                    navController.navigate(
+                        route = LoginRoute.LoginScreen.name
+                    )
+                },
+            )
         }
 
         composable(route = LoginRoute.LoginScreen.name) {
@@ -41,7 +47,7 @@ fun LoginNavHost() {
                 onPassword1Change = {},
                 onPassword2Change = {}
             ) {
-                
+
             }
         }
     }

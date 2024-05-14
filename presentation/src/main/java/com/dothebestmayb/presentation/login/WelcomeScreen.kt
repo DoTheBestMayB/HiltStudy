@@ -21,7 +21,9 @@ import com.dothebestmayb.presentation.component.HSButton
 import com.dothebestmayb.presentation.theme.HiltStudyTheme
 
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(
+    onNavigateToLoginScreen: () -> Unit,
+) {
     Surface {
         Box(
             modifier = Modifier.fillMaxSize(),
@@ -44,7 +46,7 @@ fun WelcomeScreen() {
                     .padding(bottom = 24.dp)
                     .align(alignment = Alignment.BottomCenter),
                 text = "로그인",
-                onClick = {},
+                onClick = onNavigateToLoginScreen,
             )
         }
     }
@@ -54,6 +56,8 @@ fun WelcomeScreen() {
 @Composable
 private fun WelcomeScreenPreview() {
     HiltStudyTheme {
-        WelcomeScreen()
+        WelcomeScreen(
+            onNavigateToLoginScreen = {},
+        )
     }
 }
