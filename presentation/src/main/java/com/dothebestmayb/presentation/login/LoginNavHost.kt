@@ -26,14 +26,7 @@ fun LoginNavHost() {
         }
 
         composable(route = LoginRoute.LoginScreen.name) {
-            LoginScreen(
-                id = "volums",
-                password = "asdf",
-                onIdChange = {},
-                onPasswordChange = {}
-            ) {
-
-            }
+            LoginScreen()
         }
 
         composable(route = LoginRoute.SignUpScreen.name) {
