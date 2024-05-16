@@ -19,7 +19,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.dothebestmayb.presentation.component.HSButton
 import com.dothebestmayb.presentation.component.HSTextField
 import com.dothebestmayb.presentation.theme.HiltStudyTheme
-import androidx.lifecycle.viewmodel.compose.viewModel
+import org.orbitmvi.orbit.compose.collectAsState
 
 // 1. LoginScreen을 또 만든 이유는 viewModel이 preview에 나타나지 않기 때문에 별도로 분리
 // 2. viewModel을 사용하면 Navigation Component를 사용해 LoginScreen에서 다른 Screen으로 이동할 때
@@ -31,11 +31,12 @@ fun LoginScreen(
 //    viewModel: LoginViewModel = viewModel() // 그냥 viewModel을 사용하면 위 2번의 문제 발생
     viewModel: LoginViewModel = hiltViewModel()
 ) {
+    val state = viewModel.collectAsState().value
     LoginScreen(
-        id = "",
-        password = "",
-        onIdChange = {},
-        onPasswordChange = {},
+        id = state.id,
+        password = state.password,
+        onIdChange = viewModel::onIdChange,
+        onPasswordChange = viewModel::onPasswordChange,
         onNavigateToSignUpScreen = viewModel::onLoginClick,
     )
 }
