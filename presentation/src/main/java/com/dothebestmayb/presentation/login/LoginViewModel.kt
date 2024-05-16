@@ -22,9 +22,9 @@ class LoginViewModel @Inject constructor(
             initialState = LoginState()
         )
 
-    fun onLoginClick() {
-        val id = ""
-        val password = ""
+    fun onLoginClick() = intent {
+        val id = state.id
+        val password = state.password
         viewModelScope.launch {
             loginUseCase(id, password)
         }

@@ -38,7 +38,8 @@ fun LoginScreen(
         password = state.password,
         onIdChange = viewModel::onIdChange,
         onPasswordChange = viewModel::onPasswordChange,
-        onNavigateToSignUpScreen = viewModel::onLoginClick,
+        onNavigateToSignUpScreen = {},
+        onLoginClick = viewModel::onLoginClick,
     )
 }
 
@@ -50,6 +51,7 @@ private fun LoginScreen(
     onIdChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onNavigateToSignUpScreen: () -> Unit,
+    onLoginClick: () -> Unit,
 ) {
 
     Surface {
@@ -105,7 +107,7 @@ private fun LoginScreen(
                         .padding(top = 24.dp)
                         .fillMaxWidth(),
                     text = "로그인",
-                    onClick = {},
+                    onClick = onLoginClick,
                 )
                 Spacer(modifier = Modifier.weight(1f))
                 Row(
@@ -136,6 +138,7 @@ private fun LoginScreenPreview() {
             onIdChange = {},
             onPasswordChange = {},
             onNavigateToSignUpScreen = {},
+            onLoginClick = {},
         )
     }
 }
